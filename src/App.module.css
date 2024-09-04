@@ -1,0 +1,37 @@
+.modalContainer {
+  position: relative;
+}
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 20px;
+  background-color: white;
+  border: 1px solid rgb(44, 44, 44);
+  border-radius: 50%;
+  cursor: pointer;
+  color: rgb(44, 44, 44);
+  font-size: 32px;
+}
+
+.modalImageContainer {
+  text-align: center;
+}
+.modalImage {
+  height: fit-content;
+  width: fit-content;
+  max-height: 100%;
+  max-width: 100%;
+}
+.modalContent {
+  background-color: transparent;
+  border: none;
+  overflow: clip;
+  text-align: center;
+  inset: unset;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

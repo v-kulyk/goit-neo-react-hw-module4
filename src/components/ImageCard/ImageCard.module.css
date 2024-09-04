@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.imageContainer {
+  width: 100%;
+  overflow: clip;
+}
+.container img {
+  display: block;
+  width: fit-content;
+  transition: transform ease-in-out 0.25s;
+}
+.container:hover img {
+  transform: scale(1.1);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details p {
+  margin: 0;
+  padding: 0;
+}
