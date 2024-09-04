@@ -6,7 +6,6 @@ import { searchImages } from "./api/images.js";
 import { ProgressBar } from "react-loader-spinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
 import Modal from "react-modal";
-import data from "./data";
 import styles from "./App.module.css";
 
 Modal.setAppElement("#root");
@@ -45,10 +44,9 @@ export default function App() {
       return;
     }
 
-    // setIsLoading(true);
-    // setIsError(false);
-    // fetchImages();
-    setImages((prevData) => [...prevData, ...data.results]);
+    setIsLoading(true);
+    setIsError(false);
+    fetchImages();
   }, [filter, page]);
 
   const handleOnSearch = function (query) {
