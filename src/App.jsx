@@ -50,6 +50,7 @@ export default function App() {
   }, [filter, page]);
 
   const handleOnSearch = function (query) {
+    setImages([]);
     setFilter(query);
     setPage(1);
   };
