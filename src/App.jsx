@@ -5,10 +5,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 import { searchImages } from "./api/images.js";
 import { ProgressBar } from "react-loader-spinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
-import Modal from "react-modal";
-import styles from "./App.module.css";
-
-Modal.setAppElement("#root");
+import ImageModal from "./components/ImageModal/ImageModal.jsx";
 
 export default function App() {
   const [filter, setFilter] = useState("");
@@ -18,7 +15,6 @@ export default function App() {
   const [isError, setIsError] = useState(false);
   const [hasMoreImages, setHasMoreImages] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const refModal = useRef(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -74,27 +70,10 @@ export default function App() {
       {hasMoreImages && (
         <LoadMoreBtn onClick={() => setPage((prev) => prev + 1)}></LoadMoreBtn>
       )}
-      <Modal
-        isOpen={selectedImage !== null}
-        className={{ base: styles.modalContent }}
-        style={{
-          overlay: {
-            overflow: "clip",
-            backgroundColor: "rgba(0, 0, 0, 0.85)",
-            border: "none",
-          },
-        }}
-        shouldCloseOnOverlayClick={true}
+      <ImageModal
+        image={selectedImage}
         onRequestClose={() => setSelectedImage(null)}
-      >
-        {selectedImage && (
-          <img
-            className={styles.modalImage}
-            src={selectedImage.urls.regular}
-            alt={selectedImage.alt_description}
-          />
-        )}
-      </Modal>
+      />
     </>
   );
 }
